@@ -1,0 +1,8 @@
+spring:
+  main:
+    banner-mode: off
+
+cmms:
+  report:
+    top: 3
+    file: "report.xml"

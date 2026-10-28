@@ -1,0 +1,17 @@
+# Gradle
+.gradle/
+build/
+
+# Generated reports
+report.xml
+out/
+
+# IDE
+.idea/
+*.iml
+
+# Java
+*.class
+
+# Local environment files
+.env

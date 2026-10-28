@@ -1,0 +1,36 @@
+plugins {
+    // Zadania budowania Javy: kompilacja, testy, pakowanie
+    id 'java'
+    // Pakowanie Spring Boot: zadanie bootJar buduje wykonywalny plik JAR z bibliotekami
+    id 'org.springframework.boot' version '4.1.1'
+    // Dobiera zgodne wersje bibliotek, więc przy zależnościach nie podajemy numerów
+    id 'io.spring.dependency-management' version '1.1.7'
+}
+
+group = 'pl.edu.ug'
+
+java {
+    toolchain {
+        // Program kompiluje się i działa na JDK 21
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+repositories {
+    // Stąd Gradle pobiera biblioteki
+    mavenCentral()
+}
+
+dependencies {
+    // Rdzeń Springa z logowaniem i obsługą YAML, bez serwera WWW
+    implementation 'org.springframework.boot:spring-boot-starter'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+tasks.named('bootJar') {
+    archiveFileName = 'cmms.jar'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
